@@ -30,14 +30,34 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0016138554, 0, 0)
 use_collision = true
 size = Vector3(30, 1, 30)
 
-[node name="player" type="CharacterBody3D" parent="." unique_id=683628240]
+[node name="Player" type="CharacterBody3D" parent="." unique_id=683628240]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 script = ExtResource("1_f3sb7")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="player" unique_id=699129662]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=699129662]
 shape = SubResource("CapsuleShape3D_fj7yv")
 
-[node name="head" type="Node3D" parent="player" unique_id=578008225]
+[node name="Head" type="Node3D" parent="Player" unique_id=578008225]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
-[node name="Camera3D" type="Camera3D" parent="player/head" unique_id=816020643]
+[node name="Camera3D" type="Camera3D" parent="Player/Head" unique_id=816020643]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Player" unique_id=504292071]
+
+[node name="CenterContainer" type="CenterContainer" parent="Player/CanvasLayer" unique_id=1615087241]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Player/CanvasLayer/CenterContainer" unique_id=1854155121]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+color = Color(0.6640021, 0, 0.10907958, 1)
